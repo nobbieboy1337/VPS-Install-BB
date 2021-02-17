@@ -6,7 +6,7 @@ Quick script to install all the required tools over a VPS (tested on DEBIAN).
 
 1 clone the repo.
 
-2 run following command: sh vps_install.sh
+2 run following command: sh install.sh
 
 3 Enjoy!
 
