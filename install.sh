@@ -1,7 +1,7 @@
 
 apt-get update && apt-get upgrade;
-wget https://dl.google.com/go/go1.14.6.linux-amd64.tar.gz;
-sudo tar -xvf go1.14.6.linux-amd64.tar.gz;
+wget https://golang.org/dl/go1.16.linux-amd64.tar.gz;
+sudo tar -xvf go1.16.linux-amd64.tar.gz;
 sudo mv go /usr/local;
 export GOROOT=/usr/local/go;
 export GOPATH=$HOME/go;
