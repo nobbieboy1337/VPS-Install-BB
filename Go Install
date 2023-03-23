@@ -27,7 +27,9 @@ Add the Go binary directory to your system's PATH environment variable by editin
 Add the following line at the end of the file:
 
 
-`export PATH=$PATH:/usr/local/go/bin`
+`export PATH=$PATH:/usr/local/go/bin
+`export GOPATH=$HOME/go`
+`export PATH=$PATH:$GOPATH/bin`
 
 Save the file and exit the editor by pressing Ctrl+X, then Y, then Enter.
 
