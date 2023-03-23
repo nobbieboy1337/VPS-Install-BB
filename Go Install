@@ -1,0 +1,49 @@
+Open a terminal window.
+Update the package list and install the required dependencies:
+
+sudo apt update
+sudo apt install -y wget curl git
+
+Download the Go 1.19 release for Linux from the official website using the wget command:
+
+wget https://golang.org/dl/go1.19.linux-amd64.tar.gz
+
+Verify the integrity of the downloaded file by comparing the SHA256 checksum with the one listed on the website:
+
+
+wget https://golang.org/dl/go1.19.linux-amd64.tar.gz.sha256
+sha256sum -c go1.19.linux-amd64.tar.gz.sha256
+
+This should display "go1.19.linux-amd64.tar.gz: OK" if the checksums match.
+
+Extract the downloaded archive to the /usr/local directory:
+
+sudo tar -C /usr/local -xzf go1.19.linux-amd64.tar.gz
+
+Add the Go binary directory to your system's PATH environment variable by editing the ~/.bashrc file:
+
+nano ~/.bashrc
+
+Add the following line at the end of the file:
+
+
+export PATH=$PATH:/usr/local/go/bin
+
+Save the file and exit the editor by pressing Ctrl+X, then Y, then Enter.
+
+Set the GOPATH environment variable to a directory of your choice, such as ~/go:
+
+echo "export GOPATH=$HOME/go" >> ~/.bashrc
+
+Reload the .bashrc file to apply the changes:
+
+
+source ~/.bashrc
+
+Verify that Go is installed correctly by typing the following command:
+
+
+go version
+This should display "go version go1.19 linux/amd64" if the installation was successful.
+
+That's it! You have successfully installed Go 1.19 on Ubuntu and set up the GOPATH environment variable in the .bashrc file. You can now start creating and running Go programs in your workspace directory (~/go in this case).
