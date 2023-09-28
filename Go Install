@@ -6,7 +6,7 @@ Update the package list and install the required dependencies:
 
 Download the Go 1.19 release for Linux from the official website using the wget command:
 
-`wget https://golang.org/dl/go1.19.linux-amd64.tar.gz`
+`wget https://go.dev/dl/go1.20.linux-amd64.tar.gz`
 
 Verify the integrity of the downloaded file by comparing the SHA256 checksum with the one listed on the website:
 
