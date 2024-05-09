@@ -1,50 +1,74 @@
-Open a terminal window.
-Update the package list and install the required dependencies:
+### Steps to Install Go 1.22.3 on Ubuntu
 
-`sudo apt update`
-`sudo apt install -y wget curl git`
+1. **Open a Terminal Window**  
+   Start by opening a terminal window to execute commands.
 
-Download the Go 1.19 release for Linux from the official website using the wget command:
+2. **Update Package List and Install Required Dependencies**  
+   Make sure your package list is up to date and install required tools like `wget`, `curl`, and `git`:
+   ```bash
+   sudo apt update
+   sudo apt install -y wget curl git
+   ```
 
-`wget https://go.dev/dl/go1.20.linux-amd64.tar.gz`
+3. **Download the Latest Go Release (Go 1.22.3) for Linux**  
+   Download the latest Go 1.22.3 release for Linux using the `wget` command:
+   ```bash
+   wget https://go.dev/dl/go1.22.3.linux-amd64.tar.gz
+   ```
 
-Verify the integrity of the downloaded file by comparing the SHA256 checksum with the one listed on the website:
+4. **Verify the Integrity of the Downloaded File**  
+   Download the corresponding SHA256 checksum file and verify the checksum:
+   ```bash
+   wget https://go.dev/dl/go1.22.3.linux-amd64.tar.gz.sha256
+   sha256sum -c go1.22.3.linux-amd64.tar.gz.sha256
+   ```
+   If the checksums match, it should display:  
+   `go1.22.3.linux-amd64.tar.gz: OK`
 
+5. **Extract the Downloaded Archive to `/usr/local`**  
+   Extract the archive to the `/usr/local` directory:
+   ```bash
+   sudo tar -C /usr/local -xzf go1.22.3.linux-amd64.tar.gz
+   ```
 
-`wget https://golang.org/dl/go1.19.linux-amd64.tar.gz.sha256
-sha256sum -c go1.19.linux-amd64.tar.gz.sha256`
+6. **Add Go Binary to System's PATH Environment Variable**  
+   Add the Go binary directory to your system's `PATH` environment variable by editing the `~/.bashrc` file:
+   ```bash
+   nano ~/.bashrc
+   ```
 
-This should display "go1.19.linux-amd64.tar.gz: OK" if the checksums match.
+   Add the following lines at the end of the file:
+   ```bash
+   export PATH=$PATH:/usr/local/go/bin
+   export GOPATH=$HOME/go
+   export PATH=$PATH:$GOPATH/bin
+   ```
 
-Extract the downloaded archive to the /usr/local directory:
+   Save the file and exit the editor by pressing `Ctrl+X`, then `Y`, then `Enter`.
 
-`sudo tar -C /usr/local -xzf go1.19.linux-amd64.tar.gz`
+7. **Reload `.bashrc` File to Apply Changes**  
+   Reload the `.bashrc` file to apply the changes:
+   ```bash
+   source ~/.bashrc
+   ```
 
-Add the Go binary directory to your system's PATH environment variable by editing the ~/.bashrc file:
+8. **Verify the Go Installation**  
+   Verify that Go is installed correctly by typing the following command:
+   ```bash
+   go version
+   ```
+   If the installation was successful, it should display:  
+   `go version go1.22.3 linux/amd64`
 
-`nano ~/.bashrc`
+### Additional Tips
 
-Add the following line at the end of the file:
+- **Setting GOPATH (Optional)**  
+  If you want to set a different `GOPATH` than `$HOME/go`, you can specify any other directory. For example:
+  ```bash
+  echo "export GOPATH=/custom/go/path" >> ~/.bashrc
+  ```
 
+- **Start Creating Go Projects**  
+  With Go installed, you can now start creating and running Go programs in your workspace directory (typically `~/go`).
 
-`export PATH=$PATH:/usr/local/go/bin
-`export GOPATH=$HOME/go`
-`export PATH=$PATH:$GOPATH/bin`
-
-Save the file and exit the editor by pressing Ctrl+X, then Y, then Enter.
-
-Set the GOPATH environment variable to a directory of your choice, such as ~/go:
-
-`echo "export GOPATH=$HOME/go" >> ~/.bashrc`
-
-Reload the .bashrc file to apply the changes:
-
-`source ~/.bashrc`
-
-Verify that Go is installed correctly by typing the following command:
-
-`go version`
-
-This should display "go version go1.19 linux/amd64" if the installation was successful.
-
-That's it! You have successfully installed Go 1.19 on Ubuntu and set up the GOPATH environment variable in the .bashrc file. You can now start creating and running Go programs in your workspace directory (~/go in this case).
+That's it! You've successfully installed Go 1.22.3 on Ubuntu and configured the environment variables for Go development.
