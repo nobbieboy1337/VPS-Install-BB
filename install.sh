@@ -6,7 +6,7 @@ sudo apt-get install ruby;
 sudo apt-get install screen;
 sudo apt-get install git;
 apt-get update && apt-get upgrade;
-wget https://golang.org/dl/go1.16.linux-amd64.tar.gz;
+wget https://golang.org/dl/go1.22.4.src.tar.gz;
 sudo tar -xvf go1.16.linux-amd64.tar.gz;
 sudo mv go /usr/local;
 export GOROOT=/usr/local/go;
